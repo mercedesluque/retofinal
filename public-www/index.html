@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Taller AngularJS - BootCamp</title>
+    <meta charset="utf-8" />
+    <meta lang="es" />
+    <meta name="description" content="Taller AngularJS - BootCamp" />
+    <meta name="author" content="Everis Center" />
+    <meta name="application-name" content="AngularJS" />
+    <meta name="Keywords" content="AngularJS, BootCamp, Taller" />
+    
+    <!-- Bootstrap core CSS -->
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">    
+    
+</head>
+<body ng-app="petclinicPublic">    
+    
+    <nav class="navbar navbar-inverse" ng-controller="LoginController as vm">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Petclinic - AngularJS - BootCamp</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a ui-sref="login" ng-if="!vm.isLogged()">Acceder</a></li>
+            <li><a ui-sref="micuenta" ng-if="vm.isLogged()">Mi cuenta</a></li>
+            <li><a ui-sref="nuevasolicitud" ng-if="vm.isLogged()">Solicitar Cita</a></li>
+            <li><a ui-sref="miscitas" ng-if="vm.isLogged()">Mis citas</a></li>
+            <li><a href="#" ng-click="vm.logout()" ng-if="vm.isLogged()">Desconectar</a></li>
+          </ul>
+            <!--
+          <form class="navbar-form navbar-right">
+            <input class="form-control" placeholder="Search..." type="text">
+          </form>
+            -->
+        </div>
+      </div>
+    </nav>    
+    
+    <div class="container" ui-view>
+    </div>
+    
+    <!-- Cargamos angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <script src="http://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/loginController.js"></script>
+    <script src="factories/ownersFactory.js"></script>
+</body>
+</html>
