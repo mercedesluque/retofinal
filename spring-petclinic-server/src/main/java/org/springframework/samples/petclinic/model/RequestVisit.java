@@ -34,8 +34,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @author Ken Krebs
  */
 
-//TODO Crea una entidad mapeada en la tabla "request_visits"
-//TODO
+@Entity
+@Table(name = "request_visits")
 public class RequestVisit extends BaseEntity {
 
     /**
@@ -43,28 +43,28 @@ public class RequestVisit extends BaseEntity {
      */
     @Column(name = "visit_date")
     @Temporal(TemporalType.TIMESTAMP)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date date;
 
     /**
      * Holds value of property pet.
      */
-    // TODO Relación Muchos a uno con la columna "pet_id"
-    // TODO
+    @ManyToOne
+    @JoinColumn(name = "pet_id")
 	private Pet pet;
     
     /**
      * Holds value of property pet.
      */
-	// TODO Relación Muchos a uno con la columna "vet_id"
-    // TODO
+    @ManyToOne
+    @JoinColumn(name = "vet_id")
     private Vet vet;
     
     /**
      * Holds value of property pet.
      */
-    // TODO Relación Muchos a uno con la columna "owner_id"
-    // TODO
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    @JsonIgnore
     private Owner owner;
     
     @Column(name = "state")

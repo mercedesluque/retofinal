@@ -6,7 +6,7 @@
     function loginController(ownersFactory,$state,$stateParams) {        
         var vm = this;
         vm.currentOwner = ownersFactory.getCurrentOwner();
-        
+
         vm.login = function () {            
             ownersFactory.login(vm.email,vm.password)         
                 .then(function (response) {

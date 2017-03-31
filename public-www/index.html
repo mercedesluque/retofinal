@@ -15,7 +15,6 @@
     
 </head>
 <body ng-app="petclinicPublic">    
-    
     <nav class="navbar navbar-inverse" ng-controller="LoginController as vm">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -31,7 +30,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a ui-sref="login" ng-if="!vm.isLogged()">Acceder</a></li>
             <li><a ui-sref="micuenta" ng-if="vm.isLogged()">Mi cuenta</a></li>
-            <li><a ui-sref="nuevasolicitud" ng-if="vm.isLogged()">Solicitar Cita</a></li>
+            <li><a ui-sref="nuevavisita" ng-if="vm.isLogged()">Solicitar Cita {{vm.currentOwner}}</a></li>
             <li><a ui-sref="miscitas" ng-if="vm.isLogged()">Mis citas</a></li>
             <li><a href="#" ng-click="vm.logout()" ng-if="vm.isLogged()">Desconectar</a></li>
           </ul>
@@ -52,6 +51,8 @@
     <script src="http://unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="app.js"></script>
     <script src="controllers/loginController.js"></script>
+    <script src="controllers/visitController.js"></script>
     <script src="factories/ownersFactory.js"></script>
+    <script src="factories/visitFactory.js"></script>
 </body>
 </html>

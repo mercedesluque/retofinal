@@ -18,6 +18,18 @@
                 controller: 'LoginController',
                 controllerAs: 'vm'
             })
+            .state('nuevavisita',{
+                url: "/nuevavisita"    ,
+                templateUrl: "templates/nueva-solicitud.html",
+                controller: 'VisitController',
+                controllerAs: 'vm'
+            })
+            .state('miscitas',{
+                url: "/misvisitas"    ,
+                templateUrl: "templates/mis-citas.html",
+                controller: 'VisitController',
+                controllerAs: 'vm'
+            })
     });
     
 }())

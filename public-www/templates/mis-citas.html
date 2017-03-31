@@ -1,1 +1,35 @@
-<!-- Aquí va tu vista -->
+<div class="row">
+    <h1 class="page-header">Tus citas</h1>
+    <div class="col-sm-6 col-sm-offset-3">
+       <h2>Citas solicitadas</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Fecha y hora</th>
+                <th>Mascota</th>
+                <th>Veterinario</th>
+            </tr>
+            
+            <tr ng-repeat="v2 in vm.new_visits">
+                <td>{{v2.date | date:'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{v2.pet.name}}</td>
+                <td>{{v2.vet.firstName}}</td>
+            </tr>
+        </table>
+    </div>
+     <div class="col-sm-6 col-sm-offset-3">
+       <h2>Citas antiguas</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Mascota</th>
+            </tr>
+            
+            <tr ng-repeat="v in vm.old_visits">
+                <td>{{v.date | date:'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{v.description}}</td>
+                <td>{{v.petName}}</td>
+            </tr>
+        </table>
+    </div>    
+</div>

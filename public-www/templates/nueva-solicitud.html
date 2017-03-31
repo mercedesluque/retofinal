@@ -1,5 +1,22 @@
-<h1 class="page-header">Nueva Solicitud de Cita</h1>
-<p>Indique la fecha y el veterinario deseado y nos pondremos en contacto con usted lo antes posible para confirmar la cita.</p>
-<div class="col-sm-6 col-sm-offset-3">
-    <!-- Aquí tu form -->
+<div class="row">
+    <h1 class="page-header">Nueva Solicitud de Cita</h1>
+    <p>Indique la fecha y el veterinario deseado y nos pondremos en contacto con usted lo antes posible para confirmar la cita.</p>
+    <div class="col-sm-6 col-sm-offset-3">
+        <h2><strong>Owner:</strong> <span>{{vm.owner.firstName}} {{vm.owner.lastName}}</span></h2>
+        <form class="well">
+            <select class="form-control" ng-model="vm.nueva.petId" required ng-options="pets.id as pets.name for pets in vm.owner.pets">
+                <option value="">-- Seleccione su mascota --</option>    
+            </select>
+            <br>
+            <label>Fecha y hora: </label>
+            <input class="form-control" type="datetime-local" ng-model="vm.nueva.date">
+            <br>
+            <label>Veterinario deseado: </label>
+            <select class="form-control" ng-model="vm.nueva.vetId" required ng-options="vets.id as vets.firstName for vets in vm.vets">
+                <option value="">-- Seleccione un veterinario --</option>    
+            </select>
+            <br>
+            <button type="submit" class="btn btn-success" ng-click="vm.nuevaVisita()">Solicitar visita</button>
+        </form>
+    </div>
 </div>
